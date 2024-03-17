@@ -42,7 +42,7 @@
         android:layout_toRightOf="@id/txtview2"
         android:layout_below="@id/edt1"
         android:layout_marginTop="60dp"
-        android:inputType="numberPassword"
+        android:inputType="textPassword"
         android:minHeight="48dp"
         android:hint="Enter Password"
         android:id="@+id/edt2"

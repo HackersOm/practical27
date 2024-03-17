@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
 public class MySqliteDemo extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "LoginPage";
     public static final int  DATABASE_VERSION = 1;
@@ -40,8 +42,10 @@ public class MySqliteDemo extends SQLiteOpenHelper {
     public boolean read(String username,String password){
         SQLiteDatabase db = getWritableDatabase();
         try {
-            String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + USER_NAME + "=?" + username + " AND " + PASSWORD + "=?" + password + ";";
+            String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + USER_NAME + "='" + username +"' AND  " + PASSWORD + "= '" + password + "' ;";
+            Log.d("query","query:"+query);
             Cursor cur = db.rawQuery(query, null);
+            Log.d("Cursor","Value"+cur);
             if(cur.getCount()>0){
                 return true;
             }
